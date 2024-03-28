@@ -68,8 +68,9 @@ function BoardList() {
 				<table className="border-collapse w-full table-fixed">
 					<colgroup>
 						<col className="w-[10%] sm:w-[10%]" />
-						<col className="w-[60%] sm:w-[40%]" />
+						<col className="w-[60%] sm:w-[30%]" />
 						<col className="w-[30%] sm:w-[15%]" />
+						<col className="w-0 sm:w-[10%]" />
 						<col className="w-0 sm:w-[10%]" />
 						<col className="w-0 sm:w-[25%]" />
 					</colgroup>
@@ -78,7 +79,8 @@ function BoardList() {
 							<th className="p-2 whitespace-nowrap">번호</th>
 							<th className="p-2 whitespace-nowrap">제목</th>
 							<th className="p-2 whitespace-nowrap">글쓴이</th>
-							<th className="p-2 whitespace-nowrap hidden sm:table-cell">조회</th>
+							<th className="p-2 whitespace-nowrap">조회수</th>
+							<th className="p-2 whitespace-nowrap hidden sm:table-cell">댓글수</th>
 							<th className="p-2 whitespace-nowrap hidden sm:table-cell">작성일</th>
 						</tr>
 					</thead>
