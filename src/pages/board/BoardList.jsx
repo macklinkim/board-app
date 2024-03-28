@@ -6,15 +6,15 @@ import { ReactCsspin } from "react-csspin";
 import "react-csspin/dist/style.css";
 import Pagination from "./Pagination";
 // import { useEffect, useState } from "react";
-import page1 from "./../../../../../ch07-router/01/src/Page1";
 import { useEffect } from "react";
 import Search from "@components/Search";
 import { useRecoilValue } from "recoil";
 import { memberState } from "@recoil/user/atoms.mjs";
 import Button from "@components/Button";
+import dotenv from "dotenv";
 
 function BoardList() {
-	const axios = useCustomAxios();
+  const axios = useCustomAxios();
 
 	// const [data, setData] = useState(null);
 	// const fetchBoardList = async () => {
@@ -25,11 +25,10 @@ function BoardList() {
 	//   fetchBoardList();
 	// }, []);
 	const user = useRecoilValue(memberState);
-
 	const [searchParams, setSearchParams] = useSearchParams();
 	const { isLoading, data, error, refetch } = useQuery({
 		queryKey: ["posts"],
-		queryFn: () => axios.get("/posts", { params: { page: searchParams.get("page"), limit: 10, keyword: searchParams.get("keyword") } }),
+		queryFn: () => axios.get("/posts", { params: { page: searchParams.get("page"), limit: import.meta.env.VITE_POST_LIMIT, keyword: searchParams.get("keyword") } }),
 		select: response => response.data,
 		// staleTime: 1000*100, // 쿼리 실행 후 캐시가 유지되는 시간(기본, 0)
 		suspense: true,

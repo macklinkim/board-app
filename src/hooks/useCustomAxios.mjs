@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const API_SERVER = "https://market-lion.koyeb.app/api";
+const API_SERVER = import.meta.env.VITE_API_SERVER;
 
 function useCustomAxios() {
 	// 로그인 된 사용자 정보
